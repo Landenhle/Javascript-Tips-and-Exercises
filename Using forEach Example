@@ -1,0 +1,22 @@
+class Employee{
+    constructor(firstname,lastname,years){
+        this.firstname = firstname,
+        this.lastname = lastname,
+        this.years = years
+    }
+
+    details(){
+        console.log('This is',this.firstname, this.lastname, 'and they have been here for', this.years, 'years, and their favourite color is', this.favColor );
+    }
+}
+
+
+var emp1 = new Employee('John', 'Smith', 12);
+var emp2 = new Employee('Beth', 'Anderson', 20);
+var emp3 = new Employee('Angela', 'Brown', 50);
+var employees = [emp1, emp2, emp3];
+function details(element, index){
+    console.log('Hello', + element + 'who is at position' + index);
+}
+
+emp1.forEach(details())

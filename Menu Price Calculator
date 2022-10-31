@@ -1,0 +1,17 @@
+//This is a menu price calculator
+
+class Menu{
+    item1 = 10;
+    item2 = 20;
+    constructor(val1,val2){
+        this.val1 = val1,
+        this.val2 = val2
+    }
+
+    prices(){
+        console.log((this.val1 * item1) +( this.val2 * this.item2));
+    }
+}
+
+var a = new Menu(5,2);
+a.prices();

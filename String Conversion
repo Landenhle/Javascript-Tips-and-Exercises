@@ -1,0 +1,6 @@
+var string = "HELLO PEOPLE.";
+var lowerstr = string.toLowerCase().slice(1);
+var newstring = string.charAt(0).toUpperCase().concat(lowerstr);
+
+//This will capitalise the first letter in the sentence.
+console.log(newstring);

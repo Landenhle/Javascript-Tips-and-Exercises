@@ -1,0 +1,47 @@
+// Let us do an exercise on promises. Assume Mary has a gym membership and she decides to go to the gym that day. As she enters, we want to check whethter her gym memebeership is still valid or not, and state the events that happen for each.
+
+
+let is_gym_open = true;
+
+let access = (time, call_response) => {
+  
+  return new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+      if(!is_gym_open){
+        resolve( call_response() )
+      }
+      else{
+        reject( console.log('Denied access, your membership has expired') )
+      }
+    },time )
+  })
+}
+
+access(1000, () => {
+  console.log('Hello Mary, Welcome to Fitness Hub. Enjoy your session.')
+})
+
+.then(() => {
+  setTimeout(() => {
+    console.log('What will you be training today?');
+  }, 2000)
+})
+
+.then(() => {
+  setTimeout(() => {
+    console.log('If it is legs, do that for 30 minutes and then rest');
+  }, 2500)
+})
+
+.then(() => {
+  setTimeout(() => {
+    console.log('That is the end of the session, see you next time');
+  }, 3000)
+})
+
+.catch(() => {
+  setTimeout(() => {
+    console.log('You cannot be inside the gym, please go home.');
+  }, 2000)
+})

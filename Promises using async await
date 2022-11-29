@@ -1,0 +1,39 @@
+let menu = {
+  meal:['Box Meal', 'Kota Combo', 'Meal for Two'], 
+  drink: ['Juice', 'Water', 'Soda']
+}
+
+let is_shop_open = true;
+
+let order = (time, call_response) => {
+  
+  return new Promise((resolve,reject) => {
+    
+    setTimeout(() => {
+      resolve(console.log(`${menu.meal[0]} and the ${menu.drink[1]} is what the customer ordered`))
+    }, 3000)
+  })
+}
+
+async function kitchen() {
+  console.log('Srart preparing for the meal.')
+  console.log('Please make the fries')
+  
+  await order()
+  console.log('Please make the meal and package it.')
+  console.log('Notify the customer the order is done')
+  console.log('Please come and collect your order.')
+}
+
+kitchen();
+
+console.log('Next customer please');
+console.log('What would you like to order?');
+console.log('And then repeat the process.');
+
+Well what"s happening here is that we create a new promise , in it a new setTimeout function that will resolve  or reject something. In this case it resolves something. But what if i wanted it tp do something else? 
+
+
+order(2000, () => {
+  console.log(`${menu.meal[0]} and the ${menu.drink[1]} is what the customer ordered`)
+})

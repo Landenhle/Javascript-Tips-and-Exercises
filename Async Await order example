@@ -1,0 +1,50 @@
+var is_shop_open = true;
+
+var menu = {
+  meal:['Chicken Burger', 'Chicken Strips'], 
+  drinks:['Juice', 'Water']
+}
+
+function order(ms){
+  return new Promise((resolve,reject) =>{
+    if(is_shop_open){
+      setTimeout(() =>{
+        resolve()
+      }, ms)
+    }else{
+      reject(console.log('We are sorry, we do not serve that here.'))
+    }
+  })
+}
+
+async function kitchen(){
+  try{
+    
+    await order(1000)
+    console.log(`May I please have a ${menu.meal[0]} and a ${menu.drinks[0]} please.`)
+    
+    await order(2000)
+    console.log('Your order is being processed.')
+    
+    await order(1000)
+    console.log('Please come and collect your order.')
+    
+  }
+  catch{
+    (err)=>{
+      console.log('We are still busy with your order', err);
+    }
+  }
+  // finally{
+  //   console.log('Thank you for visiting us.')    
+  // }
+}
+
+console.log('Next customer please.')
+    console.log('Welcome to our fast food shop.')
+    console.log('How can we help you?.')
+
+kitchen();
+
+// Using the async await method, we need to only resolve or reject.
+// Pay attention to the way statements execute, if they are in the function, the top-down approach will work, if the statements are outside the function they will execute first, indicating that while you wait for a resolve, other thing continue to happen, not everything stops, hwnce asynchronous programming. A concept of concurrency.
